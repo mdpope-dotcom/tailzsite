@@ -10,13 +10,13 @@
             padding: 0;
             height: 100vh;
             display: flex;
-            flex-direction: column; /* Change to column for vertical alignment */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-image: url('vile.jfif'); /* Your image URL */
             background-size: cover;
             background-position: center;
-            overflow: hidden; /* Prevents scrolling */
+            overflow: hidden;
         }
 
         /* Style for the heading */
@@ -24,12 +24,14 @@
             color: white;
             font-size: 3em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin: 0; /* Remove default margin */
+            margin: 0;
+            z-index: 10; /* Ensure heading is above stars */
         }
 
         /* Volume control style */
         audio {
-            margin-top: 20px; /* Space between heading and audio */
+            margin-top: 20px;
+            z-index: 10; /* Ensure audio controls are above stars */
         }
 
         /* Star field style */
@@ -40,7 +42,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            overflow: hidden; /* Ensures stars do not overflow the container */
+            overflow: hidden;
         }
 
         /* Basic styling for falling stars */
@@ -49,8 +51,8 @@
             background: white;
             border-radius: 50%;
             opacity: 0.8;
-            /* Avoids flickering when stars start falling */
-            transition: top linear;
+            pointer-events: none; /* Avoid interaction with stars */
+            transition: top linear; /* Avoid flickering */
         }
     </style>
 </head>
