@@ -3,33 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hi</title>
+    <title>Falling Stars</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
             display: flex;
+            flex-direction: column; /* Change to column for vertical alignment */
             justify-content: center;
             align-items: center;
             background-image: url('vile.jfif'); /* Your image URL */
             background-size: cover;
             background-position: center;
+            overflow: hidden; /* Prevents scrolling */
         }
-        /* Optional: Style for content */
+        /* Style for the heading */
         h1 {
             color: white;
             font-size: 3em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Volume control style */
+        audio {
+            margin-top: 20px; /* Space between heading and audio */
+        }
+
+        /* Star field style */
+        .star-field {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden; /* Ensures stars do not overflow the container */
+        }
+
+        /* Basic styling for falling stars */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
     <h1>hi</h1>
     <audio loop autoplay controls>
-        <source src="lLUCKI - 2021 Vibes (Official Video).mp3" type="audio/mpeg"> <!-- Your audio URL -->
+        <source src="LUCKI - 2021 Vibes (Official Video).mp3" type="audio/mpeg"> <!-- Your audio URL -->
         Your browser does not support the audio tag.
     </audio>
+    <div class="star-field"></div>
+
+    <script>
+        // Function to generate stars
+        function createStar() {
+            const starField = document.querySelector('.star-field');
+            const star = document.createElement('div');
+            const size = Math.random() * 5 + 2; // Random size between 2px and 7px
+            const leftPosition = Math.random() * window.innerWidth; // Random horizontal position
+            const animationDuration = Math.random() * 3 + 2; // Random fall time between 2s and 5s
+
+            star.classList.add('star');
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${leftPosition}px`;
+            star.style.top = `-${size}px`; // Start above the view
+
+            // Animation for the falling effect
+            star.style.transition = `top ${animationDuration}s linear`;
+            setTimeout(() => {
+                star.style.top = `${window.innerHeight}px`; // Fall to the bottom
+            }, 100);
+
+            starField.appendChild(star);
+
+            // Remove star after the animation to avoid DOM bloat
+            star.addEventListener('transitionend', () => {
+                starField.removeChild(star);
+            });
+        }
+
+        // Create stars at intervals
+        setInterval(createStar, 500); // Change the interval as needed
+    </script>
 </body>
 </html>
-
