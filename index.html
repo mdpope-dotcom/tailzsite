@@ -53,13 +53,21 @@
 
         .links {
             position: absolute;
-            right: 20px;
+            left: 20px; /* Updated to left */
             top: 20px;
             max-width: 200px;
             z-index: 10;
         }
 
-        .links a {
+        .right-links {
+            position: absolute;
+            right: 20px; /* Updated to right */
+            top: 20px;
+            max-width: 200px;
+            z-index: 10;
+        }
+
+        .links a, .right-links a {
             display: block;
             color: white;
             font-size: 1em;
@@ -68,7 +76,7 @@
             transition: color 0.3s;
         }
 
-        .links a:hover {
+        .links a:hover, .right-links a:hover {
             color: rgba(255, 255, 255, 0.7);
         }
 
@@ -112,7 +120,7 @@
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢀⣀⣀⠀⠀⠀⠀⢴⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⢿⣿⣿⣿⣿⣿⣿⣿⢿⣿⠁⠀⠀⣼⣿⣿⣿⣦⠀⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⡿
 ⠸⣿⣿⣿⣿⣿⣿⣏⠀⠀⠀⠀⠀⠛⠛⠿⠟⠋⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⠇
-⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⣤⡄⠀⣀⣀⣀⣀⣠⣾⣿⣿⣿⣿⣿⣿⣿⡟⠀
+⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⣤⡄⠀⣀⣀⣀⣀⣀⣠⣾⣿⣿⣿⣿⣿⣿⡟⠀
 ⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣄⣰⣿⠁⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀
 ⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀
 ⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋⠀⠀⠀⠀
@@ -125,6 +133,10 @@
         <a href="https://cylect.io/" target="_blank">click me</a>
         <a href="https://instantusername.com/" target="_blank">click me</a>
         <a href="https://epieos.com/" target="_blank">click me</a>
+    </div>
+
+    <div class="right-links">
+        <a href="https://youtu.be/p754nOgz5sQ?si=jgJnYx3NEu3MJu78" target="_blank">Your Chosen Link</a>
     </div>
 
     <script>
