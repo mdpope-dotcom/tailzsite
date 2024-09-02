@@ -20,13 +20,16 @@
             overflow: hidden;
         }
 
+        h1, h2, audio, pre, .links, .right-links {
+            z-index: 10;
+        }
+
         h1 {
             font-family: 'Encode Sans', sans-serif;
             color: white;
             font-size: 3em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             margin: 0;
-            z-index: 10;
         }
 
         h2 {
@@ -35,12 +38,10 @@
             font-size: 1.5em;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             margin: 10px 0 0 0;
-            z-index: 10;
         }
 
         audio {
             margin-top: 20px;
-            z-index: 10;
         }
 
         pre {
@@ -48,23 +49,20 @@
             font-size: 0.8em;
             margin-top: 15px;
             text-align: center;
-            z-index: 10;
         }
 
         .links {
             position: absolute;
-            left: 20px; /* Updated to left */
+            left: 20px;
             top: 20px;
             max-width: 200px;
-            z-index: 10;
         }
 
         .right-links {
             position: absolute;
-            right: 20px; /* Updated to right */
+            right: 20px;
             top: 20px;
             max-width: 200px;
-            z-index: 10;
         }
 
         .links a, .right-links a {
@@ -120,8 +118,8 @@
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢀⣀⣀⠀⠀⠀⠀⢴⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⢿⣿⣿⣿⣿⣿⣿⣿⢿⣿⠁⠀⠀⣼⣿⣿⣿⣦⠀⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⡿
 ⠸⣿⣿⣿⣿⣿⣿⣏⠀⠀⠀⠀⠀⠛⠛⠿⠟⠋⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⠇
-⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⣤⡄⠀⣀⣀⣀⣀⣀⣠⣾⣿⣿⣿⣿⣿⣿⡟⠀
-⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣄⣰⣿⠁⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀
+⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⣤⡄⠀⣀⣀⣀⣀⣀⣀⣠⣾⣿⣿⣿⣿⣿⣿⡟⠀
+⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣄⣰⣿⠁⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀
 ⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀
 ⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⠿⢿⣿⣿⣿⣿⡿⠿⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀
@@ -140,11 +138,11 @@
     </div>
 
     <script>
-        function createStar() {
+        function createStar(x, y) {
             const starField = document.querySelector('.star-field');
             const star = document.createElement('div');
             const size = Math.random() * 5 + 5; // Random size between 5px and 10px
-            const leftPosition = Math.random() * window.innerWidth;
+            const leftPosition = x;
             const animationDuration = Math.random() * 3 + 2; // Fall time between 2s and 5s
 
             star.classList.add('star');
@@ -171,7 +169,14 @@
         }
 
         // Create stars at intervals
-        setInterval(createStar, 500);
+        setInterval(() => {
+            createStar(Math.random() * window.innerWidth, 0); // Use random x position for the interval stars
+        }, 500);
+
+        // Create stars on click
+        document.body.addEventListener('click', (event) => {
+            createStar(event.clientX, event.clientY); // Use click position for the new stars
+        });
     </script>
 </body>
 </html>
