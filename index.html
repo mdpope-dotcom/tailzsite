@@ -55,6 +55,28 @@
             z-index: 10; /* Ensure ASCII art is above stars */
         }
 
+        /* Style for the links */
+        .links {
+            position: absolute;
+            right: 20px; /* Adjust distance from the right */
+            top: 20px; /* Adjust distance from the top */
+            max-width: 200px; /* Width of the links container */
+            z-index: 10; /* Ensure links are above stars */
+        }
+
+        .links a {
+            display: block; /* Each link on a new line */
+            color: white; /* Link color */
+            font-size: 1em; /* Link font size */
+            text-decoration: none; /* Remove underline */
+            margin: 5px 0; /* Space between the links */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        .links a:hover {
+            color: rgba(255, 255, 255, 0.7); /* Color on hover */
+        }
+
         /* Star field style */
         .star-field {
             position: absolute;
@@ -107,6 +129,15 @@
               \'  \| ) \| / /    / '     \'  \|  )___/ \     \/  \\\\\
               /    +-/
     </pre>
+
+    <div class="links">
+        <a href="https://framework.osint.be/" target="_blank">Link 1</a>
+        <a href="https://whatismyipaddress.com/" target="_blank">Link 2</a>
+        <a href="https://cylect.io/" target="_blank">Link 3</a>
+        <a href="https://instantusername.com/" target="_blank">Link 4</a>
+        <a href="https://epieos.com/" target="_blank">Link 5</a>
+       
+    </div>
 
     <script>
         // Function to generate stars
