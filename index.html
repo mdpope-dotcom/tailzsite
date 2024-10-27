@@ -47,6 +47,18 @@
             cursor: pointer;
             z-index: 2; /* Above everything else */
         }
+        .top-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 3; /* Above the overlay */
+        }
         input[type="text"] {
             padding: 10px;
             font-size: 16px;
@@ -73,6 +85,7 @@
         <source src="🎥Ray Rilla-23 Dead Opps.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    <button class="top-button" onclick="window.location.href='uwu.html'">Go to UWU Page</button>
     <div class="overlay" id="overlay">Click to Enter</div>
     <div class="container" style="display: none;" id="content">
         <h1>We Love Doxing Kids!</h1>
