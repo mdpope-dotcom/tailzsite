@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UWU Page</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        video {
+            position: fixed; /* Change to fixed to ensure it covers the viewport */
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            object-fit: cover; /* Maintain aspect ratio while covering the area */
+            z-index: -1;
+        }
+        .container {
+            z-index: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        .pink-text {
+            color: pink;
+            font-size: 36px;
+        }
+        .logo {
+            width: 100px; /* Adjust size as needed */
+            margin: 0 20px; /* Spacing between logos */
+        }
+    </style>
+</head>
+<body>
+    <video id="background-video" muted loop>
+        <source src="🎥Ray Rilla-23 Dead Opps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+        <img src="tmobile-logo1.png" alt="T-Mobile Logo" class="logo">
+        <div class="pink-text">FREE TMO INNY !!!</div>
+        <div class="custom-text">Your white text goes here</div>
+        <img src="tmobile-logo2.png" alt="T-Mobile Logo" class="logo">
+    </div>
+    <audio id="background-audio" src="your-audio-file.mp3" preload="auto"></audio>
+    
+    <script>
+        const video = document.getElementById('background-video');
+        const audio = document.getElementById('background-audio');
+
+        // Play video and audio when the page loads
+        window.addEventListener('load', () => {
+            video.muted = false; // Unmute video
+            video.play().catch((error) => {
+                console.error('Video playback failed:', error);
+            });
+
+            audio.play().catch((error) => {
+                console.error('Audio playback failed:', error);
+            });
+        });
+    </script>
+</body>
+</html>
