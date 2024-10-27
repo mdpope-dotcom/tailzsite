@@ -69,7 +69,7 @@
     </style>
 </head>
 <body>
-    <video autoplay muted loop>
+    <video id="background-video" muted loop>
         <source src="🎥Ray Rilla-23 Dead Opps.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -86,14 +86,21 @@
         const overlay = document.getElementById('overlay');
         const content = document.getElementById('content');
         const audio = document.getElementById('background-audio');
+        const video = document.getElementById('background-video');
 
         overlay.addEventListener('click', () => {
             overlay.style.display = 'none'; // Hide overlay
             content.style.display = 'block'; // Show main content
             
+            // Play the video with sound
+            video.muted = false; // Unmute video
+            video.play().catch((error) => {
+                console.error('Video playback failed:', error);
+            });
+
             // Play the audio
             audio.play().catch((error) => {
-                console.error('Playback failed:', error);
+                console.error('Audio playback failed:', error);
             });
         });
     </script>
